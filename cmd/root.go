@@ -118,14 +118,12 @@ var cmdTar = &cobra.Command{
 	Args:  cobra.MinimumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 2 {
-			if len(args) == 2 {
-				var cmdfactory pkg.AbstractFactory
-				cmdfactory = new(pkg.TarFactory)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.TarFactory)
 
-				var option pkg.CommandOptions
-				option = cmdfactory.CreateCommandOptions()
-				option.Exe(args)
-			}
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
