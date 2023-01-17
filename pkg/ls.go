@@ -46,3 +46,11 @@ func (ls *CmdLs) Exe(parameter []string) {
 	fmt.Println(string(jsonFileDirs))
 	return
 }
+
+type LsFactory struct {
+	AbstractFactory
+}
+
+func (ls *LsFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdLs)
+}

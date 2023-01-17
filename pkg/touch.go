@@ -12,7 +12,6 @@ import (
 type CmdTouch struct{}
 
 func (tc *CmdTouch) Exe(parameter []string) {
-	fmt.Println(parameter)
 	file, err := os.OpenFile(parameter[0], os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
 	defer file.Close()
 	if err != nil {
@@ -25,4 +24,12 @@ func (tc *CmdTouch) Exe(parameter []string) {
 
 	file.WriteString("\n")
 
+}
+
+type TouchFactory struct {
+	AbstractFactory
+}
+
+func (tc *TouchFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdTouch)
 }

@@ -31,3 +31,11 @@ func (mkdir *CmdMkdir) Exe(parameter []string) {
 		}
 	}
 }
+
+type MkdirFactory struct {
+	AbstractFactory
+}
+
+func (mkdir *MkdirFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdMkdir)
+}

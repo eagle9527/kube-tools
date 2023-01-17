@@ -33,3 +33,11 @@ func (cat *CmdCat) Exe(parameter []string) {
 		fmt.Println(string(file))
 	}
 }
+
+type CatFactory struct {
+	AbstractFactory
+}
+
+func (cat *CatFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdCat)
+}

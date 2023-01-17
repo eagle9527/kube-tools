@@ -15,10 +15,13 @@ var cmdLs = &cobra.Command{
 	Long:  `List information about the FILEs (the current directory by default).`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("ls")
 		if len(args) == 1 {
-			cmdOption.Exe(args)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.LsFactory)
+
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
@@ -29,10 +32,13 @@ var cmdCat = &cobra.Command{
 	Long:  `Create the DIRECTORY(ies), if they do not already exist.`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("cat")
 		if len(args) == 1 {
-			cmdOption.Exe(args)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.CatFactory)
+
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
@@ -43,10 +49,13 @@ var cmdMkdir = &cobra.Command{
 	Long:  `Create the DIRECTORY(ies), if they do not already exist.`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("mkdir")
 		if len(args) == 1 {
-			cmdOption.Exe(args)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.MkdirFactory)
+
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
@@ -57,10 +66,13 @@ var cmdRm = &cobra.Command{
 	Long:  `Remove (unlink) the FILE(s).`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("rm")
 		if len(args) == 1 {
-			cmdOption.Exe(args)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.RmdirFactory)
+
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
@@ -71,10 +83,13 @@ var cmdTouch = &cobra.Command{
 	Long:  `Get content from standard input and write it to file.`,
 	Args:  cobra.MinimumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("touch")
 		if len(args) == 2 {
-			cmdOption.Exe(args)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.TouchFactory)
+
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
@@ -85,10 +100,13 @@ var cmdMv = &cobra.Command{
 	Long:  `Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.`,
 	Args:  cobra.MinimumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("mv")
 		if len(args) == 2 {
-			cmdOption.Exe(args)
+			var cmdfactory pkg.AbstractFactory
+			cmdfactory = new(pkg.MvFactory)
+
+			var option pkg.CommandOptions
+			option = cmdfactory.CreateCommandOptions()
+			option.Exe(args)
 		}
 	},
 }
@@ -99,10 +117,15 @@ var cmdTar = &cobra.Command{
 	Long:  `The default action is to add or replace tar file entries from list`,
 	Args:  cobra.MinimumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
-		cmdfactory := new(pkg.CmdFactory)
-		cmdOption := cmdfactory.CreateCommandOption("tar")
 		if len(args) == 2 {
-			cmdOption.Exe(args)
+			if len(args) == 2 {
+				var cmdfactory pkg.AbstractFactory
+				cmdfactory = new(pkg.TarFactory)
+
+				var option pkg.CommandOptions
+				option = cmdfactory.CreateCommandOptions()
+				option.Exe(args)
+			}
 		}
 	},
 }
@@ -123,7 +146,4 @@ func Execute() {
 	if err != nil {
 		os.Exit(1)
 	}
-}
-
-func init() {
 }

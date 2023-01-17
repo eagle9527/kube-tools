@@ -16,3 +16,11 @@ func (mv *CmdMv) Exe(parameter []string) {
 		klog.Errorln(fmt.Sprintf("Rename File Or Dir fail, %s", err))
 	}
 }
+
+type MvFactory struct {
+	AbstractFactory
+}
+
+func (mv *MvFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdMv)
+}

@@ -17,3 +17,11 @@ func (rm *CmdRm) Exe(parameter []string) {
 		klog.Errorln(fmt.Sprintf("Remove file Or dir fail, %s", err))
 	}
 }
+
+type RmdirFactory struct {
+	AbstractFactory
+}
+
+func (mv *RmdirFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdRm)
+}

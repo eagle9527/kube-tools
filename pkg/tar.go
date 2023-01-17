@@ -75,3 +75,11 @@ func (tr *CmdTar) Exe(parameter []string) {
 		klog.Errorln(fmt.Sprintf("Tar Gz File Or Dir fail, %s", err))
 	}
 }
+
+type TarFactory struct {
+	AbstractFactory
+}
+
+func (tr *TarFactory) CreateCommandOptions() CommandOptions {
+	return new(CmdTar)
+}
