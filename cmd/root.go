@@ -29,8 +29,8 @@ func Execute() {
 		pkg.CobraRm,
 		pkg.CobraMkdir,
 	)
-	err := rootCmd.Execute()
-	if err != nil {
+
+	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
 }
