@@ -21,6 +21,6 @@ type MvFactory struct {
 	AbstractFactory
 }
 
-func (mv *MvFactory) CreateCommandOptions() CommandOptions {
+func (mv *MvFactory) Option() CommandOptions {
 	return new(CmdMv)
 }

@@ -80,6 +80,6 @@ type TarFactory struct {
 	AbstractFactory
 }
 
-func (tr *TarFactory) CreateCommandOptions() CommandOptions {
+func (tr *TarFactory) Option() CommandOptions {
 	return new(CmdTar)
 }

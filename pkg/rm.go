@@ -22,6 +22,6 @@ type RmdirFactory struct {
 	AbstractFactory
 }
 
-func (mv *RmdirFactory) CreateCommandOptions() CommandOptions {
+func (mv *RmdirFactory) Option() CommandOptions {
 	return new(CmdRm)
 }

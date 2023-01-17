@@ -36,6 +36,6 @@ type MkdirFactory struct {
 	AbstractFactory
 }
 
-func (mkdir *MkdirFactory) CreateCommandOptions() CommandOptions {
+func (mkdir *MkdirFactory) Option() CommandOptions {
 	return new(CmdMkdir)
 }

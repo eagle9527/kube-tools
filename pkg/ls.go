@@ -51,6 +51,6 @@ type LsFactory struct {
 	AbstractFactory
 }
 
-func (ls *LsFactory) CreateCommandOptions() CommandOptions {
+func (ls *LsFactory) Option() CommandOptions {
 	return new(CmdLs)
 }

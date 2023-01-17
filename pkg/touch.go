@@ -30,6 +30,6 @@ type TouchFactory struct {
 	AbstractFactory
 }
 
-func (tc *TouchFactory) CreateCommandOptions() CommandOptions {
+func (tc *TouchFactory) Option() CommandOptions {
 	return new(CmdTouch)
 }

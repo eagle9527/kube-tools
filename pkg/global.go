@@ -8,5 +8,5 @@ type CommandOptions interface {
 }
 
 type AbstractFactory interface {
-	CreateCommandOptions() CommandOptions
+	Option() CommandOptions
 }

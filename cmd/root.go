@@ -20,7 +20,7 @@ var cmdLs = &cobra.Command{
 			cmdfactory = new(pkg.LsFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},
@@ -37,7 +37,7 @@ var cmdCat = &cobra.Command{
 			cmdfactory = new(pkg.CatFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},
@@ -54,7 +54,7 @@ var cmdMkdir = &cobra.Command{
 			cmdfactory = new(pkg.MkdirFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},
@@ -71,7 +71,7 @@ var cmdRm = &cobra.Command{
 			cmdfactory = new(pkg.RmdirFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},
@@ -88,7 +88,7 @@ var cmdTouch = &cobra.Command{
 			cmdfactory = new(pkg.TouchFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},
@@ -105,7 +105,7 @@ var cmdMv = &cobra.Command{
 			cmdfactory = new(pkg.MvFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},
@@ -122,7 +122,7 @@ var cmdTar = &cobra.Command{
 			cmdfactory = new(pkg.TarFactory)
 
 			var option pkg.CommandOptions
-			option = cmdfactory.CreateCommandOptions()
+			option = cmdfactory.Option()
 			option.Exe(args)
 		}
 	},

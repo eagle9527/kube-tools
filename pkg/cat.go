@@ -38,6 +38,6 @@ type CatFactory struct {
 	AbstractFactory
 }
 
-func (cat *CatFactory) CreateCommandOptions() CommandOptions {
+func (cat *CatFactory) Option() CommandOptions {
 	return new(CmdCat)
 }
