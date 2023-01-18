@@ -26,5 +26,5 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP("version", "v", false, "version for kube-tools")
+	//rootCmd.Flags().BoolP("version", "v", false, "version for kube-tools")
 }
